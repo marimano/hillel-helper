@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start:server": "nodemon server/index.mjs --watch dist --watch server",
-    "open": "timeout /t 5 /nobreak && start http://localhost:5678",
+    "open": "timeout /t 5 /nobreak && start http://localhost:5679",
     "start": "npm-run-all --parallel watch:webpack start:server open",
     "watch:webpack": "webpack --mode=development --progress --watch"
   },
@@ -45,7 +45,8 @@
     "fastify": "^4.21.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "url": "^0.11.1"
+    "url": "^0.11.1",
+    "ws": "^8.13.0"
   },
   "engines": {
     "node": "16.4.0"
