@@ -5,7 +5,8 @@ import './app.scss'
 export default () => {
   const [isConnected, setIsConnected] = useState(false)
   useEffect(() => {
-    const ws = new WebSocket(`ws://${location.host}`)
+    const socketProtocol = 'ws' + (location.protocol === 'https:' ? 's' : '')
+    const ws = new WebSocket(`${socketProtocol}://${location.host}`)
     ws.onopen = () => {
       console.log('Connected')
       ws.send('Ololo')
