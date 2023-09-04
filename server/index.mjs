@@ -20,6 +20,9 @@ wss.on('connection', client => {
       if (otherClient !== client) {
         otherClient.send('Message from another client: ' + data) 
       }
+      else {
+        otherClient.send('Message from you: ' + data) 
+      }
     })
   })
 
