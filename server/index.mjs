@@ -17,12 +17,8 @@ wss.on('connection', client => {
   client.on('message', data => {
     console.log('GOT MESSAGE', data.toString())
     wss.clients.forEach(otherClient => {
-      if (otherClient !== client) {
-        otherClient.send('Message from another client: ' + data) 
-      }
-      else {
-        otherClient.send('Message from you: ' + data) 
-      }
+      const sender = otherClient === client ? 'you' : 'another client'
+      otherClient.send(`Message from ${sender}: ` + data) 
     })
   })
 
